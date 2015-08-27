@@ -91,6 +91,7 @@ namespace authority.Controllers
             a.CreatedTime = DateTime.Now;
 
             db.Announcements.Add(a);
+            db.SaveChanges();
 
             return Redirect("~/xxcc89/Announcement");
         }

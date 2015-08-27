@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "详情";
+    Layout = "~/Views/Shared/_layout.pc.cshtml";
+}
+@section style{
+    <link rel="stylesheet" type="text/css" href="/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style1.css" />
+}
+@section script{
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/law.js"></script>
+}
+<div class="blacklist_header" style="background:url(/images/53509738308cc.jpg) center no-repeat; height:380px;"></div>
+<div class="content_con">
+    <div class="inst-title">当前位置：<a href="/">首页</a>/查询结果列表</div>
+    <div class="blackb_box">
+        <div class="blackb_bk">
+            <div class="tab_menu">
+                <ul>
+                    <li class="selected">全部<span>@ViewBag.ppList.Count+ViewBag.p2pList.Count+ViewBag.upList.Count</span></li>
+                    <li>法律案件<span>@ViewBag.ppList.Count</span></li>
+                    <li>企业公示<span>@ViewBag.p2pList.Count</span></li>
+                    <li>私人曝光<span>@ViewBag.upList.Count</span></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="tab_box">
+                <div>
+                    @foreach (Models.PublicPerson item in ViewBag.ppList)
+                    {
+                        <div class="online-law-result-items" data-case-id="8408e9a313470cc4" data-case-type="0">
+                            <span class="ico-law ico-law1"></span>
+                            <div class="law-result-data">@item.PublishDate.ToString("yyyy年M月d日")</div>
+                            <div class="law-result-title"><a href="/credit/public?id=@item.PublicPersonID" class="btn-law-result-title">@item.CaseCode</a></div>
+                            <div class="law-result-detail"><a href="/credit/public?id=@item.PublicPersonID" class="btn-law-result-detail">查看</a></div>
+                        </div>
+                    }
+                    @foreach (Models.P2PPerson item in ViewBag.p2pList)
+                    {
+                        <div class="online-law-result-items" data-case-id="8408e9a313470cc4" data-case-type="0">
+                            <span class="ico-law ico-law2"></span>
+                            <div class="law-result-data">@item.LoanDate.ToString("yyyy年M月d日")</div>
+                            <div class="law-result-title"><a href="/credit/p2p?id=@item.P2PPersonID" class="btn-law-result-title">来源：@item.Source</a></div>
+                            <div class="law-result-detail"><a href="/credit/p2p?id=@item.P2PPersonID" class="btn-law-result-detail">查看</a></div>
+                        </div>
+                    }
+                    @foreach (Models.ReportedPerson item in ViewBag.upList)
+                    {
+                        <div class="online-law-result-items" data-case-id="8408e9a313470cc4" data-case-type="0">
+                            <span class="ico-law ico-law3"></span>
+                            <div class="law-result-data">@item.LoanDate.ToString("yyyy年M月d日")</div>
+                            <div class="law-result-title"><a href="/credit/p2p?id=@item.ReportedPersonID" class="btn-law-result-title">欠款：@item.Arrears</a></div>
+                            <div class="law-result-detail"><a href="/credit/p2p?id=@item.ReportedPersonID" class="btn-law-result-detail">查看</a></div>
+                        </div>
+                    }
+                </div>
+                <div class="hide">
+                    @foreach (Models.PublicPerson item in ViewBag.ppList)
+                    {
+                        <div class="online-law-result-items" data-case-id="8408e9a313470cc4" data-case-type="0">
+                            <span class="ico-law ico-law1"></span>
+                            <div class="law-result-data">@item.PublishDate.ToString("yyyy年M月d日")</div>
+                            <div class="law-result-title"><a href="/credit/public?id=@item.PublicPersonID" class="btn-law-result-title">@item.CaseCode</a></div>
+                            <div class="law-result-detail"><a href="/credit/public?id=@item.PublicPersonID" class="btn-law-result-detail">查看</a></div>
+                        </div>
+                    }
+                </div>
+                <div class="hide">
+                    @foreach (Models.P2PPerson item in ViewBag.p2pList)
+                    {
+                        <div class="online-law-result-items" data-case-id="8408e9a313470cc4" data-case-type="0">
+                            <span class="ico-law ico-law2"></span>
+                            <div class="law-result-data">@item.LoanDate.ToString("yyyy年M月d日")</div>
+                            <div class="law-result-title"><a href="/credit/p2p?id=@item.P2PPersonID" class="btn-law-result-title">来源：@item.Source</a></div>
+                            <div class="law-result-detail"><a href="/credit/p2p?id=@item.P2PPersonID" class="btn-law-result-detail">查看</a></div>
+                        </div>
+                    }
+                </div>
+                <div class="hide">
+                    @foreach (Models.ReportedPerson item in ViewBag.upList)
+                    {
+                        <div class="online-law-result-items" data-case-id="8408e9a313470cc4" data-case-type="0">
+                            <span class="ico-law ico-law3"></span>
+                            <div class="law-result-data">@item.LoanDate.ToString("yyyy年M月d日")</div>
+                            <div class="law-result-title"><a href="/credit/p2p?id=@item.ReportedPersonID" class="btn-law-result-title">欠款：@item.Arrears</a></div>
+                            <div class="law-result-detail"><a href="/credit/p2p?id=@item.ReportedPersonID" class="btn-law-result-detail">查看</a></div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

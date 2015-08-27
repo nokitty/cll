@@ -1,0 +1,48 @@
+﻿@{
+    var p = ViewBag.p as Models.P2PPerson;
+}
+<div class="result_details_tittle">
+    <p>姓名：<span>@p.Person.Name</span></p>
+    <p>身份证号：<span>@p.Person.CardNum</span></p>
+</div>
+<table border="0">
+    <tr>
+        <td colspan="2" class="mthead">P2P网贷公布失信详情</td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">信息来源</td>
+        <td class="biaoti_left">
+            <p>@p.Source</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">电话号码</td>
+        <td>
+            <p>@p.Tel </p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">借款金额</td>
+        <td>
+            <p>@p.LoanAccount</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">借款期数</td>
+        <td>
+            <p>@p.InstalmentCount</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">已还款金额</td>
+        <td>
+            <p>@p.RepayAccount</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">逾期未还金额(含利息)</td>
+        <td>
+            <p>@p.ExpireAccount</p>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,72 @@
+﻿<div class="result_details_tittle">
+    @{
+        var p = ViewBag.p as Models.PublicPerson;
+    }
+    <p>姓名：<span>@p.Person.Name</span></p>
+    <p>身份证号：<span>@p.Person.CardNum</span></p>
+</div>
+<table border="0">
+    <tr>
+        <td colspan="2" class="mthead">失信被执行详情</td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">执行法院</td>
+        <td class="biaoti_left">
+            <p>@p.CourtName</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">省份</td>
+        <td>
+            <p>@p.AreaName </p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">执行依据文号</td>
+        <td>
+            <p>@p.GistID</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">立案时间</td>
+        <td>
+            <p>@p.RegDate.ToString("yyyy年M月d日") </p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">案号</td>
+        <td>
+            <p>@p.CaseCode</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">做出执行依据单位</td>
+        <td>
+            <p>@p.GistUnit</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">生效法律文书确定的义务</td>
+        <td>
+            <p>@p.Duty</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">被执行人的履行情况</td>
+        <td>
+            <p>@p.Performance</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">失信被执行人行为具体情形</td>
+        <td>
+            <p>@p.DisruptTypeName</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">发布时间</td>
+        <td>
+            <p>@p.PublishDate.ToString("yyyy年M月d日")</p>
+        </td>
+    </tr>
+</table>

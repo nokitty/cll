@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "信用查询";
+    Layout = "~/Views/Shared/_layout.pc.cshtml";
+}
+
+@section style{
+    <link rel="stylesheet" type="text/css" href="/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+}
+
+@section script{
+    <script type="text/javascript" src="js/JQuery.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/law.js"></script>
+}
+
+<div style="background:url(/images/53509738308cc.jpg) center no-repeat; height:380px;"></div>
+<div class="content_con">
+    <div class="inst-title">当前位置：<a>首页</a>/信用查询</div>
+    <div class="blackb_box">
+        <div class="blackb_bk">
+            <div class="header_content_right fl" style="height:540px;">
+                <div class="search" style="margin-left:300px; margin-top:90px;">
+                    <img src="images/chaxun.png" />
+                    <div class="tips-out-wrap">
+                        <div class="tips-error" id="tipsFormError" style="display:block;"><span class="tips-error-msg"></span></div>
+                    </div>
+                    <ul id="searchFormId">
+                        <li id="nameWrap">
+                            <input type="text" class="text" id="name" data-valida-input="false" placeholder="请输入要查询的姓名" />
+                        </li>
+                        <li id="idcardWrap">
+                            <input type="text" class="text-tel" id="idcard" data-valida-input="true" placeholder="请输入身份证号码(选填)" />
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn" id="toSearch" onclick="toSearch()"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

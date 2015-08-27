@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Index.pc";
+    Layout = "~/Views/Shared/_layout.pc.cshtml";
+}
+@section style{
+    <link rel="stylesheet" type="text/css" href="/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style1.css" />
+}
+@section script{
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/law.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/exposure.js"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            $(".picCaptchaReflesh").click(function ()
+            {
+                $("#picCaptcha").attr("src", "/report/getpiccaptchas?rand=" + Math.random());
+            });
+        })
+    </script>
+}
+
+<div class="content_con">
+    <div class="inst-title">当前位置：<a href="/">首页</a>/黑名单列表</div>
+    <div class="informants_tittle">
+        <img src="/images/step-tips.png" />
+        <p><span class="cur_informants">验证举报人身份信息</span><span>提交老赖信息</span><span>举报成功</span></p>
+    </div>
+    <div class="informants_content">
+        <div class="blackb_box">
+            <div class="blackb_bk">
+                <p class="new_register">填写举报人信息</p>
+                <div class="tips-out-wrap" style="float:none;">
+                    <div class="tips-error" id="tipsFormError"><span class="tips-error-msg">请输入有效的身份证号码！</span></div>
+                </div>
+                <form>
+                    <ul class="informants_box" id="exposureId">
+                        <li class="informants_input">
+                            <label class="form-label">举报人</label>
+                            <input type="text" class="form-input" id="name" data-valida-input="false" placeholder="请输入您的姓名" />
+                        </li>
+                        <li class="informants_input">
+                            <label class="form-label">身份证</label>
+                            <input type="text" class="form-input" id="idcard" data-valida-input="false" placeholder="请输入身份证号码" />
+                        </li>
+                        <li class="informants_input">
+                            <label class="form-label">验证码</label>
+                            <input type="text" class="form-input" style="padding-right:5px;" id="picverify" placeholder="请输入图片验证码" />
+                            <span>
+                                <a class="picCaptchaReflesh" href="javascript:;"><img id="picCaptcha" src="/report/getpiccaptchas" /></a>
+                                <a class="picCaptchaReflesh" href="javascript:;" style="font-size:12px;">换一张</a>
+                            </span>
+                        </li>
+                        <li class="informants_input">
+                            <label class="form-label">手机号</label>
+                            <input type="text" class="form-input" style="padding-right:5px;" id="tel" data-valida-input="false" placeholder="请输入您的手机号" />
+                            <span class="get-tel-code-wrap">
+                                <span class="get-tel-code" id="getTelCodeId">获取验证码</span>
+                            </span>
+                        </li>
+                        <li class="informants_input no-boreder-bottom">
+                            <label class="form-label">验证码</label>
+                            <input type="text" class="form-input" id="verify" data-valida-input="false" placeholder="请输入验证码" />
+                        </li>
+                    </ul>
+                </form>
+                <div class="informants_clause">
+                    <dl>
+                        <dt>&nbsp; </dt>
+                        <dd>
+                            <input id="checkBoxId" checked="checked" type="checkbox" style="vertical-align:middle;" class="check-box-checked"> &nbsp; 同意
+                            <a href="#" onclick="PropDiv('safety/register_saft.aspx',995,0)" style="color: #AF072B; font-size:12px;">
+                                《平台免责协议》
+                            </a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>&nbsp; </dt>
+                        <dd>
+                            <input name="buttSinUp" type="button" id="submit" style="" class="informants_inimg" onclick="toExposure()">
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

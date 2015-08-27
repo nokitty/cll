@@ -1,0 +1,78 @@
+﻿<div class="result_details_tittle">
+    @{
+        var p = ViewBag.p as Models.ReportedPerson;
+    }
+    <p>姓名：<span>@p.ReportedPerson.Name</span></p>
+    <p>身份证号：<span>@p.ReportedPerson.CardNum</span></p>
+</div>
+<table border="0">
+
+    <tr>
+        <td colspan="2" class="mthead">个人举报失信详情</td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">省份</td>
+        <td class="biaoti_left">
+            <p>@p.Province</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">城市</td>
+        <td>
+            <p>@p.City</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">电话</td>
+        <td>
+            <p>@p.Tel</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">借款</td>
+        <td>
+            <p>@p.Arrears</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">借款笔数</td>
+        <td>
+            <p>@p.Count</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">约定还款日期</td>
+        <td>
+            <p>@p.RepayDate.ToString("yyyy年M月d日")</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">其他信息</td>
+        <td>
+            <p>@p.Remark</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="biaoti_right">举报日期</td>
+        <td>
+            <p>@p.ReportDate.ToString("yyyy年M月d日")</p>
+        </td>
+    </tr>
+    @if (!string.IsNullOrWhiteSpace(p.Pics))
+    {
+        var pics = p.Pics.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+        <tr>
+            <td class="biaoti_right">欠款证明</td>
+            <td>
+                <p>
+                    @foreach (var pic in pics)
+                    {
+                        <a href="/upload/@pic">
+                            <img src="/upload/@pic" style="max-height: 200px; max-width: 200px; border: 3px solid white; box-shadow: 0px 0px 3px 0px rgb(102, 102, 102); margin: 10px;" />
+                        </a>
+                    }
+                </p>
+            </td>
+        </tr>
+    }
+</table>

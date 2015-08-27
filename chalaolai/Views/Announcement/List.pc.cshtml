@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "新闻列表";
+    Layout = "~/Views/Shared/_layout.pc.cshtml";
+}
+@section style{
+    <link rel="stylesheet" type="text/css" href="/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style1.css" />
+}
+@section script{
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/law.js"></script>
+}
+<div class="content_con">
+    <div class="news_listL">
+        <div class="tit">查老赖资讯</div>
+        <div class="news_listL1">
+            <h3><a href="/news/list" title="新闻动态">新闻动态</a></h3>
+            <ul class="proul">
+                <li><a href="/news/list" title="行业资讯">行业资讯</a></li>
+                <li><a href="/announcement/list" title="公司公告">公司公告</a></li>
+                <li><a href="/qna/list" title="常见问题解答">常见问题解答</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="news_listL2">
+            <div class="tit">联系方式</div>
+            <ul>
+                <div class="phone">全国咨询热线：<br /><span>400-088-7296</span> </div>
+                <p>手机：1839771283</p>
+                <p>电话：0757-22287563</p>
+                <p>联系人：王先生</p>
+                <p>地址：佛山市顺德区大良镇创意产业园B座E区218</p>
+            </ul>
+        </div>
+    </div>
+    <div class="news_listM"><img src="/images/cp-middle.png" /></div>
+    <div class="news_listR">
+        <div class="news_listR1">
+            <h4>查老赖资讯<b>我的位置：<a href="/">首页</a>&gt;&gt;公司公告</b></h4>
+            <div class="news_List_list">
+                @foreach (Models.Announcement item in ViewBag.list)
+                {
+                    <dl>
+                        <dt><a href="/news/@item.AnnouncementID" target="_blank">@item.Title</a><span>@item.CreatedTime.ToString("[MM-dd hh:mm]")</span></dt>
+                        <dd>@item.Content</dd>
+                    </dl>
+                }
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>

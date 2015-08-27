@@ -1,0 +1,12 @@
+E:\c#\web\chalaolai\DAL\bin\Debug\DAL.dll.config
+E:\c#\web\chalaolai\DAL\bin\Debug\DAL.dll
+E:\c#\web\chalaolai\DAL\bin\Debug\DAL.pdb
+E:\c#\web\chalaolai\DAL\bin\Debug\EntityFramework.dll
+E:\c#\web\chalaolai\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\c#\web\chalaolai\DAL\bin\Debug\MySql.Data.dll
+E:\c#\web\chalaolai\DAL\bin\Debug\mysql.data.entity.EF6.dll
+E:\c#\web\chalaolai\DAL\bin\Debug\EntityFramework.xml
+E:\c#\web\chalaolai\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\c#\web\chalaolai\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\c#\web\chalaolai\DAL\obj\Debug\DAL.dll
+E:\c#\web\chalaolai\DAL\obj\Debug\DAL.pdb

@@ -1,0 +1,160 @@
+﻿@{
+    ViewBag.Title = "填写详细信息";
+    Layout = "~/Views/Shared/_layout.pc.cshtml";
+}
+@section style{
+    <link rel="stylesheet" type="text/css" href="/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style1.css" />
+    <link href="/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <style>
+        .error-text {
+            display: none;
+            color: red;
+        }
+
+        .form-group {
+            margin: 0;
+            padding: 0 15px;
+        }
+    </style>
+}
+@section script{
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/CheckValid.js"></script>
+    <script src="/js/tools.js"></script>
+    <script src="/js/report.form.js"></script>
+    <script src="/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script>
+        $(function ()
+        {
+            $('#loandate,#repaydate').datetimepicker({
+                language: 'zh-CN',
+                format: 'yyyy-mm-dd',
+                weekStart: 1,
+                todayBtn: 1,
+                autoclose: 1,
+                todayHighlight: 1,
+                startView: 2,
+                minView: 2,
+            });
+        })
+    </script>
+}
+<div class="content_con">
+    <div class="inst-title">当前位置：<a href="index.html">首页</a>/黑名单列表</div>
+    <div class="informants_tittle">
+        <img src="/images/step-tips_2.png" />
+        <p><span>验证举报人身份信息</span><span class="cur_informants">提交老赖信息</span><span>举报成功</span></p>
+    </div>
+    <div class="informants_content">
+        <div class="blackb_box">
+            <div class="blackb_bk">
+                <p class="new_register">填写老赖信息</p>
+                <form method="post" id="form" class="form-horizontal">
+                    <div class="form-group check-valid" data-check-type="notempty">
+                        <label class="control-label col-sm-2 text-right">姓名:</label>
+                        <div class="col-sm-8">
+                            <input class="input-sm form-control" type="text" id="name" name="name" />
+                        </div>
+                        <div class="error-text col-sm-2">姓名不能为空</div>
+                    </div>
+                    <hr />
+                    <div class="form-group check-valid" data-check-type="cardnum">
+                        <label class="control-label col-sm-2 text-right">身份证:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="input-sm form-control" id="cardnum" name="cardnum" />
+                        </div>
+                        <div class="error-text col-sm-2">身份证号码有误</div>
+                    </div>
+                    <hr />
+                    <div class="form-group check-valid" data-check-type="notempty">
+                        <label class="control-label col-sm-2 text-right">省份:</label>
+                        <div class="btn-group col-sm-8">
+                            <button type="button" class="btn btn-default dropdown-toggle btn-block btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span id="provincebotton">请选择省份</span> <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" style="width: 100%; text-align: center; max-height: 200px; overflow: auto" id="provincelist"></ul>
+                        </div>
+                        <input type="hidden" id="province" name="province" value="" />
+                        <div class="error-text col-sm-2">请选择省份</div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label class="control-label col-sm-2 text-right">城市:</label>
+                        <div class="btn-group col-sm-8">
+                            <button type="button" class="btn btn-default dropdown-toggle btn-block btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span id="citybotton">请选择城市</span><span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" style="width: 100%; text-align: center; max-height: 150px; overflow: auto" id="citylist">
+                                <li><a href="javascript:;">请先选择省份</a></li>
+                            </ul>
+                        </div>
+                        <input type="hidden" id="city" name="city" value="" />
+                        <div class="error-text col-sm-2">请选择省份</div>
+                    </div>
+                    <hr />
+                    <div class="form-group check-valid" data-check-type="telnum">
+                        <label class="control-label col-sm-2 text-right">手机号:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="tel" name="tel" />
+                        </div>
+                        <div class="error-text col-sm-2">请输入正确手机号</div>
+                    </div>
+                    <hr />
+                    <div class="form-group check-valid" data-check-type="isnumber">
+                        <label class="control-label col-sm-2 text-right">欠款总额:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="arrears" name="arrears" />
+                        </div>
+                        <div class="error-text col-sm-2">请输入有效数字</div>
+                    </div>
+                    <hr />
+                    <div class="form-group check-valid" data-check-type="isinteger">
+                        <label class="control-label col-sm-2 text-right">欠款笔数:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="count" name="count" />
+                        </div>
+                        <div class="error-text col-sm-2">请输入有效数字</div>
+                    </div>
+                    <hr />
+                    <div class="form-group check-valid" data-check-type="notempty">
+                        <label class="control-label col-sm-2 text-right">欠款日期:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="loandate" name="loandate" />
+                        </div>
+                        <div class="error-text col-sm-2">请输入日期</div>
+                    </div>
+                    <hr />
+                    <div class="form-group check-valid" data-check-type="notempty">
+                        <label class="control-label col-sm-2 text-right">还款日期:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="repaydate" name="repaydate" />
+                        </div>
+                        <div class="error-text col-sm-2">请输入日期</div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label class="control-label col-sm-2 text-right">其他信息:</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="remark" name="remark"></textarea>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label class="control-label">上传凭据(请上传真实有效的借款合同，或者能够证明借贷情况的照片)</label>
+                        <input type="file" name="files" />
+                    </div>
+                    <hr />
+                </form>
+                <button class="btn btn-primary center-block" id="submit">提交</button>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "关于我们";
+    Layout = "~/Views/Shared/_layout.pc.cshtml";
+}
+
+@section style{
+<link rel="stylesheet" type="text/css" href="/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/style1.css" />
+}
+
+@section script{
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/law.js"></script>
+}
+
+<input id="flagId" type="hidden" value="0" />
+<div class="content_con">
+    <div class="clearfix">
+        <ul id="menuUl" class="myApps-nav">
+            <li class="myApps-nav-items myApps-nav-items-cur" flag="0">联系我们</li>
+            <li class="myApps-nav-items" flag="1"><a>提供的服务</a></li>
+        </ul>
+        <div class="myApps-content">
+            <div class="about-us-content" id="ContactUs">
+                <img src="images/img01.png" />
+                <div class="ct-items">
+                    <h1>联系查老赖</h1>
+                    <p>客服QQ群：304539080</p>
+                    <p>在线咨询QQ：2262544524</p>
+                    <p>客服热线：0592-3322737</p>
+                    <p>技术支持：support@kuaicha.info</p>
+                    <p>地址：佛山市顺德区大良镇创意产业园E座218</p>
+                </div>
+                <div class="clear"></div>
+                <div style="height:400px; width:720px;margin-bottom:10px; border:1px solid #ccc;" id="dituContent"></div>
+                <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+                <script type="text/javascript" src="js/map.js"></script>
+            </div>
+            <div class="about-us-content">
+                <img src="images/img04.png" />
+                <div class="ab-title">信用黑名单查询</div>
+                <p class="ab-items-msg">
+                    <span class="ab-ico-round"></span>
+                    查老赖的信用记录来源：银行和法院的公开数据、线下各城市合作公司、单位、P2P网络贷款等。<br />
+                    查老赖拥有庞大的信用黑名单记录，让您的放贷更放心，为您的资金保驾护航
+                </p>
+                <div class="ab-title">追踪客户服务</div>
+                <p class="ab-items-msg">
+                    <span class="ab-ico-round"></span>
+                    您添加了您的客户信息后，我们会收集银行和法院的公开数据、民间借贷、P2P网络贷款等数据<br />
+                    经过云计算处理后，将有价值的客户信息提供给您。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

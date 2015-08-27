@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "查询结果";
+    Layout = "~/Views/Shared/_layout.pc.cshtml";
+}
+
+@section style{
+    <link rel="stylesheet" type="text/css" href="/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style1.css" />
+}
+
+@section script{
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/law.js"></script>
+}
+
+<div class="blacklist_header" style="background:url(/images/53509738308cc.jpg) center no-repeat; height:380px;"></div>
+<div class="content_con">
+    <div class="inst-title">当前位置：<a href="/">首页</a>/查询结果列表</div>
+    <div class="blackb_box">
+        <div class="blackb_bk">
+            <div class="result_items_tittle">
+                <p>您好，我们总共为您查询到有关于“<span>@ViewBag.name</span>”的<span>@ViewBag.result.Count</span>条信息</p>
+            </div>
+            <div class="result_items_content">
+               @for (int i = 0, n = ViewBag.result.Count; i < n;i++ )
+               {
+                    var item=ViewBag.result[i];
+                   <ul>
+                    <li class="result_num">@i+1</li>
+                    <li class="result_name">@item.person.Name</li>
+                    <li class="result_idcard">@item.person.CardNum</li>
+                    <li class="result_address">@item.person.Province+item.person.City</li>
+                    <li class="result_sum">失信记录：<span>@item.totalCount</span>条</li>
+                    <li class="check_details"><a href="/credit/person?id=@item.person.PersonID">查看详情</a></li>
+                </ul>
+               }
+            </div>
+        </div>
+    </div>
+</div>

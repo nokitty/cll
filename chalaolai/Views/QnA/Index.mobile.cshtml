@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "新闻详情";
+    Layout = "~/Views/Shared/_layout.pc.cshtml";
+}
+
+@section style{
+    <link rel="stylesheet" type="text/css" href="/css/base.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/style1.css" />
+}
+
+@section script{
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+
+    <script type="text/javascript" src="/js/common.js"></script>
+
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+
+    <script type="text/javascript" src="/js/law.js"></script>
+}
+
+<div class="content_con">
+
+    @{
+        var qna = ViewBag.qna as Models.QnA;
+    }
+    <div class="inst-title">当前位置：<a href="/">首页</a>/<a href="/news/list">行业资讯</a>/@qna.Question</div>
+
+    <div class="News-details">
+        <div class="News-detailsL">
+            <div class="News-detailsL-tittle">
+                <h1>@qna.Question</h1>
+                <p><span>@qna.CreatedTime.ToString("yyyy年MM月dd日 hh:mm:ss")</span><p>
+            </div>
+            <div class="News-detailsL-content">
+                @qna.Answer
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+

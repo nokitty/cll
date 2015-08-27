@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" MasterPageFile="~/Views/shared/BootstrapFrame.Master" %>
+
+<asp:Content runat="server" ContentPlaceHolderID="style">
+    <%=System.Web.Optimization.Styles.Render("~/mobile") %>
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <div class="header">
+        <div class="container clearfix dropdown">
+            <a class="glyphicon glyphicon-home pull-left icon"></a>
+            <div class="pull-right icon">
+                <span class="glyphicon glyphicon-menu-hamburger" data-toggle="dropdown"></span>
+                <ul class="dropdown-menu" style="width:100%;">
+                    <li>
+                        <div class="clearfix" style="margin:10px auto;">
+                            <div class="btn-left pull-left">
+                                <button class="btn btn-primary btn-block">登录</button>
+                            </div>
+                            <div class="btn-right pull-right">
+                                <button class="btn btn-danger btn-block">注册</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="#">附近的老赖</a></li>
+                    <li><a href="#">举报老赖</a></li>
+                    <li><a href="#">交通违章查询</a></li>
+                </ul>
+            </div>
+            <h1 class=" text-center title">标题</h1>
+        </div>
+    </div>
+    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
